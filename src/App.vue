@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import Gallery from './components/Gallery.vue'
+import Gallery from "./components/Gallery.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Gallery
-  }
-}
+    Gallery,
+  },
+};
 </script>
 
 <style>
@@ -22,5 +22,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.figure img {
+  max-width: 100%;
+  height: auto;
+  width: 50%;
 }
 </style>

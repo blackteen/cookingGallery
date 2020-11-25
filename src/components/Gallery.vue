@@ -3,12 +3,13 @@
     <main>
       <h1>Recipes Book</h1>
       <Recipe
+        class="recipe"
         v-for="(recipe, idx) in recipes"
         :key="idx"
         :name="recipe.name"
         :img="recipe.image"
-        :description ="recipe.description"
-        :ingredients ="recipe.ingredients"
+        :description="recipe.description"
+        :ingredients="recipe.ingredients"
       />
       <button id="addResipe">Add Ricipe</button>
     </main>
@@ -25,6 +26,7 @@ export default {
       recipes: [],
     };
   },
+
   components: {
     Recipe,
   },
@@ -36,7 +38,6 @@ export default {
 
 
 <style scoped>
-
 #addResipe {
   max-width: 150px;
   padding: 10px 20px;
@@ -59,5 +60,4 @@ main {
   display: flex;
   flex-direction: column;
 }
-
 </style>

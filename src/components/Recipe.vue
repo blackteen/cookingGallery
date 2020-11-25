@@ -1,33 +1,48 @@
 <template>
-  <div class="article">
-    <h2>{{ name }}</h2>
-    <figure>
-      <img :src="img" />
-      <figcaption>{{ description }}</figcaption>
-    </figure>
-    <section v-for="(ingredient, idx2) in ingredients" :key="idx2">
-      <p>{{ ingredient.name }}:{{ ingredient.quantity }}</p>
-    </section>
+  <div class="article" v-on:click="openPopUp()">
+    <h2 class="name">{{ name }}</h2>
+    <div class="group">
+      <figure class="figure">
+        <img :src="img" />
+        <figcaption class="description">{{ description }}</figcaption>
+      </figure>
+      <transition name="fade">
+        <Deital
+          v-if="visible"
+          :name="name"
+          :img="img"
+          :description="description"
+          :ingredients="ingredients"
+        />
+      </transition>
+    </div>
   </div>
 </template>
 
 <script>
+import Deital from "../components/Deital.vue";
 export default {
   data() {
     return {
-       
+      visible: false,
     };
   },
-   props: ['name', 'img', "description", "ingredients"],
+  components: {
+    Deital,
+  },
+  methods: {
+    openPopUp: function () {
+      this.visible = !this.visible;
+    },
+  },
+  props: ["name", "img", "description", "ingredients"],
 };
 </script>
 
 
 <style scoped>
-
-
-h2 {
-  margin: 0 0 20px 0;
+.group {
+  display: flex;
 }
 
 .article {
@@ -36,16 +51,31 @@ h2 {
   margin: 0 0 20px;
 }
 
-figure {
-  display: flex;
-  margin: 0;
+.name {
+  margin: 0 0 20px 0;
 }
 
-figcaption {
+.figure {
+  display: flex;
+  margin: 0;
+  align-items: center;
+}
+
+.description {
   margin: 0 0 0 20px;
 }
 
 h3 {
   margin: 40px 0 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
