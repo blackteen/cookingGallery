@@ -8,6 +8,7 @@
       </figure>
       <transition name="fade">
         <Deital
+          v-on:inputs-change="getData($event)" 
           v-if="visible"
           :name="name"
           :img="img"
@@ -25,15 +26,20 @@ export default {
   data() {
     return {
       visible: false,
+      inputData: []
     };
   },
   components: {
     Deital,
   },
   methods: {
-    openPopUp: function () {
-      this.visible = !this.visible;
+    openPopUp() {
+      this.visible = true;
     },
+    getData(data) {
+      this.inputData = data
+      console.log(this.inputData)
+    }
   },
   props: ["name", "img", "description", "ingredients"],
 };

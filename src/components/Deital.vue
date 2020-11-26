@@ -12,13 +12,36 @@
     >
       <p>{{ ingredient.name }}:{{ ingredient.quantity }}</p>
     </section>
+    <button class="plus" @click="plus()">+</button>
+    <div v-if="vissible">
+      <input v-model="recipeName">
+      <input v-model="recipeQuantaty">
+      <button @click="sendData()">Add</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      vissible: false,
+      recipeName: "",
+      recipeQuantaty:"",
+    };
+  },
+  methods: {
+    plus(){
+      this.vissible = !this.vissible
+    },
+    sendData() {
+      this.$emit("inputs-change", 
+        [
+          this.recipeName,
+          this.recipeQuantaty
+        ]
+    );
+    },
   },
   props: ["name", "img", "description", "ingredients"],
 };
