@@ -10,43 +10,46 @@
       v-for="(ingredient, idx2) in ingredients"
       :key="idx2"
     >
-      <p>{{ ingredient.name }}:{{ ingredient.quantity }}</p>
+      <p>{{ ingredient.ingredientName }}:{{ ingredient.ingredientValue }}</p>
     </section>
     <button class="plus" @click="plus()">+</button>
     <div v-if="vissible">
-      <input v-model="recipeName">
-      <input v-model="recipeQuantaty">
+      <input v-model="recipeName" />
+      <input v-model="recipeQuantaty" />
       <button @click="sendData()">Add</button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
+  props: ["name", "img", "description", "ingredients", "idx"],
   data() {
     return {
       vissible: false,
       recipeName: "",
-      recipeQuantaty:"",
+      recipeQuantaty: "",
+      id: this.idx,
     };
   },
   methods: {
-    plus(){
-      this.vissible = !this.vissible
+    ...mapMutations(["creteaIngredient"]),
+    plus() {
+      this.vissible = !this.vissible;
     },
     sendData() {
-      this.$emit("inputs-change", 
-        [
-          this.recipeName,
-          this.recipeQuantaty
-        ]
-    );
+      this.creteaIngredient({
+        id: this.id,
+        data: {
+          ingredientName: this.recipeName,
+          ingredientValue: this.recipeQuantaty,
+        },
+      });
     },
   },
-  props: ["name", "img", "description", "ingredients"],
 };
 </script>
-
 
 <style scoped>
 .name {

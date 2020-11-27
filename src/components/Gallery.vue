@@ -4,12 +4,13 @@
       <h1>Recipes Book</h1>
       <Recipe
         class="recipe"
-        v-for="(recipe, idx) in recipes"
+        v-for="(recipe, idx) in getRecipes"
         :key="idx"
         :name="recipe.name"
         :img="recipe.image"
         :description="recipe.description"
         :ingredients="recipe.ingredients"
+        :idx="idx"
       />
       <button id="addResipe">Add Ricipe</button>
     </main>
@@ -17,25 +18,18 @@
 </template>
 
 <script>
-import { db } from "../db";
 import Recipe from "../components/Recipe.vue";
+import { mapGetters } from "vuex";
 
 export default {
-  data() {
-    return {
-      recipes: [],
-    };
+  computed: {
+    ...mapGetters(["getRecipes"]),
   },
-
   components: {
     Recipe,
   },
-  firestore: {
-    recipes: db.collection("recipes"),
-  },
 };
 </script>
-
 
 <style scoped>
 #addResipe {
