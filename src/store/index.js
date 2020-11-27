@@ -11,8 +11,11 @@ export default new Vuex.Store({
         updateRecipes(state, recipes) {
             state.recipes = recipes
         },
-        creteaIngredient(state, { id, data }) {
+        addIngredient(state, { id, data }) {
             state.recipes[id].ingredients.push(data)
+        },
+        addRecipe(state, data) {
+            state.recipes.push(data)
         }
     },
     state: {
@@ -32,7 +35,7 @@ export default new Vuex.Store({
             },
             {
                 name: "Beef",
-                image: "https://image.shutterstock.com/image-photo/grilled-beef-steaks-spices-on-600w-439021402.jpg",
+                image: "https://image.shutterstock.com/image-photo/tender-boneless-grilled-pork-chops-600w-1277299174.jpg",
                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 ingredients: [{
                     ingredientName: "Salt",
@@ -45,7 +48,7 @@ export default new Vuex.Store({
             },
             {
                 name: "Chicken",
-                image: "https://image.shutterstock.com/image-photo/grilled-beef-steaks-spices-on-600w-439021402.jpg",
+                image: "https://image.shutterstock.com/image-photo/roasted-chicken-rosemary-served-on-600w-1023252025.jpg",
                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 ingredients: [{
                     ingredientName: "Salt",

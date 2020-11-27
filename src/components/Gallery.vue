@@ -12,21 +12,54 @@
         :ingredients="recipe.ingredients"
         :idx="idx"
       />
-      <button id="addResipe">Add Ricipe</button>
+      <button id="addResipe" @click="vissible = !vissible">Add Ricipe</button>
+      <div v-if="vissible">
+        <input v-model="name" />
+        <input v-model="description" />
+        <input type="file" accept="image/jpeg" @change="uploadImage" />
+        <button @click="addRecipes()">Add</button>
+      </div>
     </main>
   </div>
 </template>
 
 <script>
 import Recipe from "../components/Recipe.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
+  data() {
+    return {
+      vissible: false,
+      name: "",
+      image: null,
+      description: "",
+    };
+  },
   computed: {
     ...mapGetters(["getRecipes"]),
   },
   components: {
     Recipe,
+  },
+  methods: {
+    ...mapMutations(["addRecipe"]),
+    addRecipes() {
+      this.addRecipe({
+        name: this.name,
+        image: this.image,
+        description: this.description,
+        ingredients: [],
+      });
+    },
+    uploadImage(e) {
+      const image = e.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = (e) => {
+        this.image = e.target.result;
+      };
+    },
   },
 };
 </script>

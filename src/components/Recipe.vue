@@ -1,5 +1,5 @@
 <template>
-  <div class="article" v-on:click.self="visible = true;">
+  <div class="article" v-on:click.self="visible = true">
     <h2 class="name">{{ name }}</h2>
     <div class="group">
       <figure class="figure">
@@ -8,7 +8,7 @@
       </figure>
       <transition name="fade">
         <Deital
-          v-on:unvissible="visible = !visible"
+          v-on:close="visible = !visible"
           v-if="visible"
           :name="name"
           :img="img"
@@ -41,7 +41,8 @@ export default {
 .group {
   display: flex;
 }
-.group, .name {
+.group,
+.name {
   pointer-events: none;
 }
 

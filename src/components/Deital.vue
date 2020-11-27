@@ -37,32 +37,35 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["creteaIngredient"]),
+    ...mapMutations(["addIngredient"]),
     plus() {
       this.vissible = !this.vissible;
     },
     close() {
-      this.$emit("unvissible")
+      this.$emit("close");
     },
     sendData() {
-      this.creteaIngredient({
+      this.addIngredient({
         id: this.id,
         data: {
           ingredientName: this.recipeName,
           ingredientValue: this.recipeQuantaty,
         },
       });
+      this.recipeName = this.recipeQuantaty = "";
     },
   },
 };
 </script>
 
 <style scoped>
-.popup {pointer-events: all;}
+.popup {
+  pointer-events: all;
+}
 .close {
   position: absolute;
   right: 10px;
-  top:10px;
+  top: 10px;
 }
 .popup {
   position: fixed;
