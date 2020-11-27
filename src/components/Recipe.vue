@@ -1,5 +1,5 @@
 <template>
-  <div class="article" v-on:click="openPopUp()">
+  <div class="article" v-on:click.self="visible = true;">
     <h2 class="name">{{ name }}</h2>
     <div class="group">
       <figure class="figure">
@@ -8,7 +8,7 @@
       </figure>
       <transition name="fade">
         <Deital
-          v-on:inputs-change="getData($event)"
+          v-on:unvissible="visible = !visible"
           v-if="visible"
           :name="name"
           :img="img"
@@ -33,11 +33,6 @@ export default {
   components: {
     Deital,
   },
-  methods: {
-    openPopUp() {
-      this.visible = true;
-    },
-  },
 };
 </script>
 
@@ -45,6 +40,9 @@ export default {
 <style scoped>
 .group {
   display: flex;
+}
+.group, .name {
+  pointer-events: none;
 }
 
 .article {
