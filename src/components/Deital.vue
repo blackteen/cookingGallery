@@ -13,13 +13,17 @@
       >
         <p>{{ ingredient.ingredientName }}:{{ ingredient.ingredientValue }}</p>
       </section>
-      <button class="plus" @click="plus()">+</button>
-      <div v-if="vissible">
-        <input v-model="recipeName" />
-        <input v-model="recipeQuantaty" />
-        <button @click="sendData()">Add</button>
+      <button class="btn btn-primary plus" @click="plus()">+</button>
+      <div v-if="vissible" class="form-item">
+        <div class="form-group">
+          <input class="form-control" placeholder="Ingredient Name" v-model="recipeName" />
+        </div>
+        <div class="form-group">
+          <input class="form-control" placeholder="Ingredient Quantaty" v-model="recipeQuantaty" />
+        </div>
+        <button class="btn btn-primary" @click="sendData()">Add New Ingredient</button>
       </div>
-      <button class="close" @click="close()">x</button>
+      <button class="btn btn-primary close" @click="close()">x</button>
     </div>
   </div>
 </template>
@@ -59,6 +63,12 @@ export default {
 </script>
 
 <style scoped>
+
+.form-item {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
 .popup {
   pointer-events: all;
 }
@@ -99,6 +109,7 @@ export default {
 .description {
   margin: 0 0 0 20px;
 }
+
 
 h3 {
   margin: 40px 0 0;

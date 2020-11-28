@@ -23,6 +23,7 @@
 
 <script>
 import Deital from "../components/Deital.vue";
+
 export default {
   props: ["name", "img", "description", "ingredients", "idx"],
   data() {

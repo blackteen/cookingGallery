@@ -12,12 +12,36 @@
         :ingredients="recipe.ingredients"
         :idx="idx"
       />
-      <button id="addResipe" @click="vissible = !vissible">Add Ricipe</button>
-      <div v-if="vissible">
-        <input v-model="name" />
-        <input v-model="description" />
-        <input type="file" accept="image/jpeg" @change="uploadImage" />
-        <button @click="addRecipes()">Add</button>
+      <button class="btn btn-primary" @click="vissible = !vissible">
+        Add Ricipe
+      </button>
+      <div v-if="vissible" class="form-item">
+        <div class="form-group">
+          <input
+            class="form-control"
+            placeholder="Recipe Name"
+            v-model="name"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            placeholder="Recipe Description"
+            v-model="description"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control file"
+            type="file"
+            placeholder="Recipe Image"
+            accept="image/jpeg"
+            @change="uploadImage"
+          />
+        </div>
+        <button class="btn btn-primary" @click="addRecipes()">
+          Add New Recipe
+        </button>
       </div>
     </main>
   </div>
@@ -83,8 +107,19 @@ export default {
   border-color: #0ae90a;
 }
 
+.form-item {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
 main {
   display: flex;
   flex-direction: column;
+  padding:15px;
 }
+
+.form-control.file {
+  height: 45px;
+}
+
 </style>
