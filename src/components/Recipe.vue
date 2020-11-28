@@ -7,7 +7,7 @@
         <figcaption class="description">{{ shortDescripton }}</figcaption>
       </figure>
       <transition name="fade">
-        <Deital
+        <Popup
           v-on:close="visible = !visible"
           v-if="visible"
           :name="name"
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Deital from "../components/Deital.vue";
+import Popup from "../components/Popup.vue";
 
 export default {
   props: ["name", "img", "description", "ingredients", "idx"],
@@ -34,12 +34,12 @@ export default {
   computed: {
     shortDescripton() {
       let desr = this.description;
-      let trimmedString = desr.substring(0, 150);
+      let trimmedString = desr.substring(0, 170);
       return `${trimmedString}...`;
     },
   },
   components: {
-    Deital,
+    Popup,
   },
 };
 </script>

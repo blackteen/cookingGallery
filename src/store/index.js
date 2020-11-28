@@ -28,7 +28,7 @@ export default new Vuex.Store({
     editMutation(state, { id, id2, data }) {
       state.recipes[id2].ingredients[id].ingredientName = data.ingredientName;
       state.recipes[id2].ingredients[id].ingredientValue = data.ingredientValue;
-    }
+    },
   },
   state: {
     recipes: [

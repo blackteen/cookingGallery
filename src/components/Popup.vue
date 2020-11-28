@@ -4,7 +4,7 @@
       <h2 class="name" v-if="editMode">{{ name }}</h2>
       <div class="form-group" v-else>
         <input
-          class="form-control"
+          class="form-control input-name"
           v-model="areaName"
           :placeholder="areaName"
         />
@@ -166,5 +166,9 @@ p {
   width: 100%;
   min-height: 300px;
   resize: none;
+}
+
+.input-name {
+  width: 97%;
 }
 </style>
