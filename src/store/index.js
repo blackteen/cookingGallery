@@ -18,6 +18,9 @@ export default new Vuex.Store({
     removeItems(state, id) {
       state.recipes.splice(id, 1);
     },
+    removeIngredientItems(state, { id, id2 }) {
+      state.recipes[id2].ingredients.splice(id, 1);
+    },
     editItem(state, { id, data }) {
       state.recipes[id].description = data.description;
       state.recipes[id].name = data.name;

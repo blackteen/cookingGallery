@@ -38,10 +38,12 @@
           </div>
         </figcaption>
       </figure>
-      <Ingredient v-for="(ingredient, idx2) in ingredients" :key="idx2"
-      :ingredient="ingredient"
-      :index="idx2"
-      :index2="id"
+      <Ingredient
+        v-for="(ingredient, idx2) in ingredients"
+        :key="idx2"
+        :ingredient="ingredient"
+        :index="idx2"
+        :index2="id"
       />
       <button class="btn btn-primary plus" @click="plus()">+</button>
       <div v-if="vissible" class="form-item">
