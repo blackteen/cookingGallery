@@ -4,7 +4,17 @@
       <h2 class="name">{{ name }}</h2>
       <figure class="figure">
         <img :src="img" />
-        <figcaption class="description">{{ description }}</figcaption>
+        <figcaption class="description">
+          <div class="buttons">
+            <button class="btn btn-primary edit" @click="editItem()">
+              Edit
+            </button>
+            <button class="btn btn-primary remove" @click="removeItem()">
+              Remove
+            </button>
+          </div>
+          {{ description }}
+        </figcaption>
       </figure>
       <section>
         <p
@@ -12,7 +22,8 @@
           v-for="(ingredient, idx2) in ingredients"
           :key="idx2"
         >
-          <b>{{ ingredient.ingredientName }}</b>:
+          <b>{{ ingredient.ingredientName }}</b
+          >:
           {{ ingredient.ingredientValue }}
         </p>
       </section>
@@ -54,11 +65,15 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["addIngredient"]),
+    ...mapMutations(["addIngredient", "removeItems"]),
     plus() {
       this.vissible = !this.vissible;
     },
     close() {
+      this.$emit("close");
+    },
+    removeItem() {
+      this.removeItems(this.id);
       this.$emit("close");
     },
     sendData() {
@@ -77,6 +92,9 @@ export default {
 </script>
 
 <style scoped>
+p {
+  margin: 0;
+}
 
 .plus {
   border-radius: 50%;
@@ -88,7 +106,7 @@ export default {
 
 .close {
   border-radius: 50%;
-   width: 30px;
+  width: 30px;
   height: 30px;
 }
 
@@ -100,4 +118,11 @@ export default {
   margin: 0 0 0 20px;
 }
 
+.buttons {
+  margin: 0 0 15px;
+}
+
+.remove {
+  margin: 0 0 0 10px;
+}
 </style>

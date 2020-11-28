@@ -75,6 +75,7 @@ export default {
         description: this.description,
         ingredients: [],
       });
+      this.vissible = false;
     },
     uploadImage(e) {
       const image = e.target.files[0];

@@ -15,6 +15,9 @@ export default new Vuex.Store({
     addRecipe(state, data) {
       state.recipes.push(data);
     },
+    removeItems(state, id) {
+      state.recipes.splice(id, 1);
+    },
   },
   state: {
     recipes: [

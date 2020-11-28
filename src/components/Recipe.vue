@@ -33,10 +33,10 @@ export default {
   },
   computed: {
     shortDescripton() {
-      let desr = this.description
+      let desr = this.description;
       let trimmedString = desr.substring(0, 150);
-      return `${trimmedString}...`
-    }
+      return `${trimmedString}...`;
+    },
   },
   components: {
     Deital,
@@ -46,7 +46,6 @@ export default {
 
 
 <style scoped>
-
 .group {
   display: flex;
 }
@@ -70,5 +69,4 @@ export default {
 .description {
   margin: 0 0 0 20px;
 }
-
 </style>
