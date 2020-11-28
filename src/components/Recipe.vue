@@ -4,7 +4,7 @@
     <div class="group">
       <figure class="figure">
         <img :src="img" />
-        <figcaption class="description">{{ description }}</figcaption>
+        <figcaption class="description">{{ shortDescripton }}</figcaption>
       </figure>
       <transition name="fade">
         <Deital
@@ -31,6 +31,13 @@ export default {
       visible: false,
     };
   },
+  computed: {
+    shortDescripton() {
+      let desr = this.description
+      let trimmedString = desr.substring(0, 150);
+      return `${trimmedString}...`
+    }
+  },
   components: {
     Deital,
   },
@@ -51,24 +58,16 @@ export default {
   border: 1px solid #ccc;
   padding: 20px;
   margin: 0 0 20px;
+  background: #f1f1f1;
 }
 
 .name {
   margin: 0 0 20px 0;
 }
 
-.figure {
-  display: flex;
-  margin: 0;
-  align-items: center;
-}
 
 .description {
   margin: 0 0 0 20px;
-}
-
-h3 {
-  margin: 40px 0 0;
 }
 
 .fade-enter-active,

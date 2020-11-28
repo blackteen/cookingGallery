@@ -1,7 +1,7 @@
 <template>
   <div>
     <main>
-      <h1>Recipes Book</h1>
+      <h1>Recipe Book</h1>
       <Recipe
         class="recipe"
         v-for="(recipe, idx) in getRecipes"
@@ -89,37 +89,10 @@ export default {
 </script>
 
 <style scoped>
-#addResipe {
-  max-width: 150px;
-  padding: 10px 20px;
-  background-color: #5cb85c;
-  color: #fff;
-  font-size: 15px;
-  border: 1px solid #5cb85c;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#addResipe:hover,
-#addResipe:focus,
-#addResipe:active {
-  background-color: #0ae90a;
-  border-color: #0ae90a;
-}
-
-.form-item {
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  padding:15px;
-}
-
 .form-control.file {
   height: 45px;
 }
-
+.btn-primary {
+  margin: 15px 0;
+}
 </style>

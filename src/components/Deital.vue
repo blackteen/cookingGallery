@@ -6,24 +6,37 @@
         <img :src="img" />
         <figcaption class="description">{{ description }}</figcaption>
       </figure>
-      <section
-        class="ingredient"
-        v-for="(ingredient, idx2) in ingredients"
-        :key="idx2"
-      >
-        <p>{{ ingredient.ingredientName }}:{{ ingredient.ingredientValue }}</p>
+      <section>
+        <p
+          class="ingredient"
+          v-for="(ingredient, idx2) in ingredients"
+          :key="idx2"
+        >
+          <b>{{ ingredient.ingredientName }}</b> :
+          {{ ingredient.ingredientValue }}
+        </p>
       </section>
       <button class="btn btn-primary plus" @click="plus()">+</button>
       <div v-if="vissible" class="form-item">
         <div class="form-group">
-          <input class="form-control" placeholder="Ingredient Name" v-model="recipeName" />
+          <input
+            class="form-control"
+            placeholder="Ingredient Name"
+            v-model="recipeName"
+          />
         </div>
         <div class="form-group">
-          <input class="form-control" placeholder="Ingredient Quantaty" v-model="recipeQuantaty" />
+          <input
+            class="form-control"
+            placeholder="Ingredient Quantaty"
+            v-model="recipeQuantaty"
+          />
         </div>
-        <button class="btn btn-primary" @click="sendData()">Add New Ingredient</button>
+        <button class="btn btn-primary" @click="sendData()">
+          Add New Ingredient
+        </button>
       </div>
-      <button class="btn btn-primary close" @click="close()">x</button>
+      <button class="btn btn-primary close" @click="close()">×</button>
     </div>
   </div>
 </template>
@@ -56,6 +69,7 @@ export default {
           ingredientValue: this.recipeQuantaty,
         },
       });
+      this.vissible = false;
       this.recipeName = this.recipeQuantaty = "";
     },
   },
@@ -63,55 +77,30 @@ export default {
 </script>
 
 <style scoped>
-
-.form-item {
-  padding: 20px;
-  border: 1px solid #ccc;
+p {
+  margin: 0;
+}
+.plus {
+  border-radius: 50%;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  margin: 10px 0;
 }
 
-.popup {
-  pointer-events: all;
-}
 .close {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-.popup {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-.popup-body {
-  position: absolute;
-  width: 80vw;
-  background: #fff;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border: 1px solid #ccc;
-  padding: 20px;
-  box-sizing: border-box;
+  border-radius: 50%;
+   width: 30px;
+  height: 30px;
 }
 
 .name {
   margin: 0 0 20px 0;
 }
 
-.figure {
-  display: flex;
-  margin: 0;
-}
+
 
 .description {
   margin: 0 0 0 20px;
-}
-
-
-h3 {
-  margin: 40px 0 0;
 }
 </style>

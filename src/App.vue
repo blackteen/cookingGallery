@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <Gallery />
   </div>
 </template>
@@ -21,7 +21,59 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
+}
+
+main .figure {
+  display: flex;
+  margin: 0;
+  align-items: flex-start;
+}
+
+.popup {
+  pointer-events: all;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.popup {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-body {
+  position: absolute;
+  width: 80vw;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-item {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+h3 {
+  margin: 40px 0 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 }
 
 .figure img {
