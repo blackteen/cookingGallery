@@ -12,7 +12,7 @@
           v-for="(ingredient, idx2) in ingredients"
           :key="idx2"
         >
-          <b>{{ ingredient.ingredientName }}</b> :
+          <b>{{ ingredient.ingredientName }}</b>:
           {{ ingredient.ingredientValue }}
         </p>
       </section>
@@ -28,7 +28,7 @@
         <div class="form-group">
           <input
             class="form-control"
-            placeholder="Ingredient Quantaty"
+            placeholder="Ingredient Quantity"
             v-model="recipeQuantaty"
           />
         </div>
@@ -77,9 +77,7 @@ export default {
 </script>
 
 <style scoped>
-p {
-  margin: 0;
-}
+
 .plus {
   border-radius: 50%;
   padding: 0;
@@ -98,9 +96,8 @@ p {
   margin: 0 0 20px 0;
 }
 
-
-
 .description {
   margin: 0 0 0 20px;
 }
+
 </style>

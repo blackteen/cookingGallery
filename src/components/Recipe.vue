@@ -46,9 +46,11 @@ export default {
 
 
 <style scoped>
+
 .group {
   display: flex;
 }
+
 .group,
 .name {
   pointer-events: none;
@@ -65,18 +67,8 @@ export default {
   margin: 0 0 20px 0;
 }
 
-
 .description {
   margin: 0 0 0 20px;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>

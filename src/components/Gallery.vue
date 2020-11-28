@@ -55,16 +55,16 @@ export default {
   data() {
     return {
       vissible: false,
-      name: "",
       image: null,
+      name: "",
       description: "",
     };
   },
-  computed: {
-    ...mapGetters(["getRecipes"]),
-  },
   components: {
     Recipe,
+  },
+  computed: {
+    ...mapGetters(["getRecipes"]),
   },
   methods: {
     ...mapMutations(["addRecipe"]),
@@ -92,6 +92,7 @@ export default {
 .form-control.file {
   height: 45px;
 }
+
 .btn-primary {
   margin: 15px 0;
 }

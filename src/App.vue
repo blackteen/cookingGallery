@@ -16,12 +16,27 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 30px;
+}
+
+p {
+  margin: 0;
+}
+
+h3 {
+  margin: 40px 0 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 }
 
 main .figure {
@@ -32,15 +47,6 @@ main .figure {
 
 .popup {
   pointer-events: all;
-}
-
-.close {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.popup {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -61,19 +67,15 @@ main .figure {
   box-sizing: border-box;
 }
 
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 .form-item {
   padding: 20px;
   border: 1px solid #ccc;
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
 }
 
 .figure img {
@@ -81,4 +83,15 @@ main {
   height: auto;
   width: 50%;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 </style>
