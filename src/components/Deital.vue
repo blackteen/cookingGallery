@@ -1,19 +1,41 @@
 <template>
   <div class="popup">
     <div class="popup-body">
-      <h2 class="name">{{ name }}</h2>
+      <h2 class="name" v-if="editMode">{{ name }}</h2>
+      <div class="form-group" v-else>
+        <input
+          class="form-control"
+          v-model="areaName"
+          :placeholder="areaName"
+        />
+      </div>
       <figure class="figure">
         <img :src="img" />
         <figcaption class="description">
           <div class="buttons">
-            <button class="btn btn-primary edit" @click="editItem()">
+            <button
+              class="btn btn-primary edit"
+              v-if="editMode"
+              @click="editMode = false"
+            >
               Edit
+            </button>
+            <button class="btn btn-primary edit" v-else @click="saveEdited()">
+              Save
             </button>
             <button class="btn btn-primary remove" @click="removeItem()">
               Remove
             </button>
           </div>
-          {{ description }}
+          <div class="description-body" ref="descriptionBody" v-if="editMode">
+            {{ description }}
+          </div>
+          <div class="form-group" v-else>
+            <textarea
+              class="desctiptio-area form-control"
+              v-model="areaDescription"
+            ></textarea>
+          </div>
         </figcaption>
       </figure>
       <section>
@@ -59,13 +81,16 @@ export default {
   data() {
     return {
       vissible: false,
+      editMode: true,
       recipeName: "",
       recipeQuantaty: "",
       id: this.idx,
+      areaDescription: this.description,
+      areaName: this.name,
     };
   },
   methods: {
-    ...mapMutations(["addIngredient", "removeItems"]),
+    ...mapMutations(["addIngredient", "removeItems", "editItem"]),
     plus() {
       this.vissible = !this.vissible;
     },
@@ -75,6 +100,16 @@ export default {
     removeItem() {
       this.removeItems(this.id);
       this.$emit("close");
+    },
+    saveEdited() {
+      this.editItem({
+        id: this.id,
+        data: {
+          description: this.areaDescription,
+          name: this.areaName,
+        },
+      });
+      this.editMode = !this.editMode;
     },
     sendData() {
       this.addIngredient({
@@ -116,6 +151,7 @@ p {
 
 .description {
   margin: 0 0 0 20px;
+  width: 100%;
 }
 
 .buttons {
@@ -124,5 +160,11 @@ p {
 
 .remove {
   margin: 0 0 0 10px;
+}
+
+.desctiptio-area {
+  width: 100%;
+  min-height: 300px;
+  resize: none;
 }
 </style>
