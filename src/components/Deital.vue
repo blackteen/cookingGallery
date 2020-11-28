@@ -38,17 +38,11 @@
           </div>
         </figcaption>
       </figure>
-      <section>
-        <p
-          class="ingredient"
-          v-for="(ingredient, idx2) in ingredients"
-          :key="idx2"
-        >
-          <b>{{ ingredient.ingredientName }}</b
-          >:
-          {{ ingredient.ingredientValue }}
-        </p>
-      </section>
+      <Ingredient v-for="(ingredient, idx2) in ingredients" :key="idx2"
+      :ingredient="ingredient"
+      :index="idx2"
+      :index2="id"
+      />
       <button class="btn btn-primary plus" @click="plus()">+</button>
       <div v-if="vissible" class="form-item">
         <div class="form-group">
@@ -75,6 +69,7 @@
 </template>
 
 <script>
+import Ingredient from "../components/Ingredient.vue";
 import { mapMutations } from "vuex";
 export default {
   props: ["name", "img", "description", "ingredients", "idx"],
@@ -88,6 +83,9 @@ export default {
       areaDescription: this.description,
       areaName: this.name,
     };
+  },
+  components: {
+    Ingredient,
   },
   methods: {
     ...mapMutations(["addIngredient", "removeItems", "editItem"]),
