@@ -48,6 +48,11 @@ main .figure {
   align-items: flex-start;
 }
 
+main .figure .file {
+  align-self: center;
+  text-align: center;
+}
+
 .popup {
   pointer-events: all;
   position: fixed;
