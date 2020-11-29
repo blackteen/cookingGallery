@@ -1,6 +1,10 @@
 {
   "name": "cooking-gallery",
+<<<<<<< HEAD
   "version": "1.0.0",
+=======
+  "version": "1.0.1",
+>>>>>>> develop
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

@@ -1,13 +1,13 @@
 <template>
   <div class="article" v-on:click.self="visible = true">
-    <h2 class="name">{{ name }}</h2>
+    <h3 class="name">{{ name }}</h3>
     <div class="group">
       <figure class="figure">
         <img :src="img" />
         <figcaption class="description">{{ shortDescripton }}</figcaption>
       </figure>
       <transition name="fade">
-        <Deital
+        <Popup
           v-on:close="visible = !visible"
           v-if="visible"
           :name="name"
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Deital from "../components/Deital.vue";
+import Popup from "../components/Popup.vue";
 
 export default {
   props: ["name", "img", "description", "ingredients", "idx"],
@@ -34,12 +34,12 @@ export default {
   computed: {
     shortDescripton() {
       let desr = this.description;
-      let trimmedString = desr.substring(0, 150);
+      let trimmedString = desr.substring(0, 170);
       return `${trimmedString}...`;
     },
   },
   components: {
-    Deital,
+    Popup,
   },
 };
 </script>
@@ -56,10 +56,10 @@ export default {
 }
 
 .article {
-  border: 1px solid #ccc;
   padding: 20px;
   margin: 0 0 20px;
-  background: #f1f1f1;
+  background: #fff;
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
 .name {

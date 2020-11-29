@@ -1,7 +1,7 @@
 <template>
   <div>
     <main>
-      <h1>Recipe Book</h1>
+      <h4>Recipe Book</h4>
       <Recipe
         class="recipe"
         v-for="(recipe, idx) in getRecipes"
@@ -16,6 +16,7 @@
         Add Ricipe
       </button>
       <div v-if="vissible" class="form-item">
+        <p class="error" v-if="error">Please, fill out all fields</p>
         <div class="form-group">
           <input
             class="form-control"
@@ -58,6 +59,7 @@ export default {
       image: null,
       name: "",
       description: "",
+      error: false,
     };
   },
   components: {
@@ -65,17 +67,25 @@ export default {
   },
   computed: {
     ...mapGetters(["getRecipes"]),
+    isFilled() {
+      return this.name == "" || this.description == "";
+    },
   },
   methods: {
     ...mapMutations(["addRecipe"]),
     addRecipes() {
-      this.addRecipe({
-        name: this.name,
-        image: this.image,
-        description: this.description,
-        ingredients: [],
-      });
-      this.vissible = false;
+      if (!this.isFilled) {
+        this.addRecipe({
+          name: this.name,
+          image: this.image,
+          description: this.description,
+          ingredients: [],
+        });
+        this.name = this.description = "";
+        this.vissible = this.error = false;
+      } else {
+        this.error = true;
+      }
     },
     uploadImage(e) {
       const image = e.target.files[0];

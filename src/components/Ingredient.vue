@@ -9,8 +9,10 @@
           :placeholder="ingredientEditionName"
         />
       </span>
-       : 
-      <span v-if="editMode">{{ ingredient.ingredientValue }}</span>
+      :
+      <span class="ingredient-value" v-if="editMode">{{
+        ingredient.ingredientValue
+      }}</span>
       <span v-else>
         <input
           class="form-control"
@@ -87,6 +89,9 @@ p {
   display: flex;
   align-items: baseline;
   align-content: center;
-  margin: 0;
+  margin: 7px 0;
+}
+.ingredient-value {
+  margin: 0 6px;
 }
 </style>
