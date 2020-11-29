@@ -24,6 +24,7 @@ export default new Vuex.Store({
     editItem(state, { id, data }) {
       state.recipes[id].description = data.description;
       state.recipes[id].name = data.name;
+      state.recipes[id].image = data.image;
     },
     editMutation(state, { id, id2, data }) {
       state.recipes[id2].ingredients[id].ingredientName = data.ingredientName;

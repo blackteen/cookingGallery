@@ -10,20 +10,34 @@
         />
       </div>
       <figure class="figure">
-        <img :src="img" />
+        <img v-if="editMode" :src="img" />
+        <div v-else class="form-group file">
+          <p>Upload image</p>
+          <input
+            class="form-control file"
+            type="file"
+            placeholder="Recipe Image"
+            accept="image/jpeg"
+            @change="uploadImage"
+            id="file"
+          />
+          <label for="file">
+            <b-icon icon="box-arrow-down" font-scale="7"></b-icon>
+          </label>
+        </div>
         <figcaption class="description">
           <div class="buttons">
             <button
-              class="btn btn-primary edit"
+              class="btn btn-info edit"
               v-if="editMode"
               @click="editMode = false"
             >
               Edit
             </button>
-            <button class="btn btn-primary edit" v-else @click="saveEdited()">
+            <button class="btn btn-success edit" v-else @click="saveEdited()">
               Save
             </button>
-            <button class="btn btn-primary remove" @click="removeItem()">
+            <button class="btn btn-danger remove" @click="removeItem()">
               Remove
             </button>
           </div>
@@ -85,16 +99,17 @@ export default {
       id: this.idx,
       areaDescription: this.description,
       areaName: this.name,
-      error: false
+      error: false,
+      image: this.img,
     };
   },
   components: {
     Ingredient,
   },
-  computed:{
+  computed: {
     isFilled() {
-      return this.recipeName == "" || this.recipeQuantaty == ""
-    }
+      return this.recipeName == "" || this.recipeQuantaty == "";
+    },
   },
   methods: {
     ...mapMutations(["addIngredient", "removeItems", "editItem"]),
@@ -114,9 +129,18 @@ export default {
         data: {
           description: this.areaDescription,
           name: this.areaName,
+          image: this.image,
         },
       });
       this.editMode = !this.editMode;
+    },
+    uploadImage(e) {
+      const image = e.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = (e) => {
+        this.image = e.target.result;
+      };
     },
     sendData() {
       if (!this.isFilled) {
@@ -127,10 +151,10 @@ export default {
             ingredientValue: this.recipeQuantaty,
           },
         });
-        this.vissible = this.error = false
+        this.vissible = this.error = false;
         this.recipeName = this.recipeQuantaty = "";
-      }else{
-        this.error = true
+      } else {
+        this.error = true;
       }
     },
   },
@@ -140,6 +164,10 @@ export default {
 <style scoped>
 p {
   margin: 0;
+}
+
+.form-group.file input {
+  display: none;
 }
 
 .plus {
