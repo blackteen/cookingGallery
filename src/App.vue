@@ -28,10 +28,18 @@ h3 {
   margin: 40px 0 0;
 }
 
+main h4 {
+  font-weight: 700;
+  margin:  0 0 20px 0;
+}
+
 main {
   display: flex;
   flex-direction: column;
   padding: 15px;
+  background: #f7f7f7;
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5);
+  margin: 0 0 30px 0;
 }
 
 main .figure {
@@ -71,6 +79,7 @@ main .figure {
 .form-item {
   padding: 20px;
   border: 1px solid #ccc;
+  background: #fff;
 }
 
 .figure img {
@@ -87,5 +96,9 @@ main .figure {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.error {
+  color: red;
 }
 </style>

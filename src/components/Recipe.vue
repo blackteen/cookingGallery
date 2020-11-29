@@ -1,6 +1,6 @@
 <template>
   <div class="article" v-on:click.self="visible = true">
-    <h2 class="name">{{ name }}</h2>
+    <h3 class="name">{{ name }}</h3>
     <div class="group">
       <figure class="figure">
         <img :src="img" />
@@ -56,10 +56,10 @@ export default {
 }
 
 .article {
-  border: 1px solid #ccc;
   padding: 20px;
   margin: 0 0 20px;
-  background: #f1f1f1;
+  background: #fff;
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
 .name {

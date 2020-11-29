@@ -1,7 +1,7 @@
 <template>
   <div class="popup">
     <div class="popup-body">
-      <h2 class="name" v-if="editMode">{{ name }}</h2>
+      <h3 class="name" v-if="editMode">{{ name }}</h3>
       <div class="form-group" v-else>
         <input
           class="form-control input-name"
@@ -47,6 +47,7 @@
       />
       <button class="btn btn-primary plus" @click="plus()">+</button>
       <div v-if="vissible" class="form-item">
+        <p class="error" v-if="error">Please, fill out all fields</p>
         <div class="form-group">
           <input
             class="form-control"
@@ -84,10 +85,16 @@ export default {
       id: this.idx,
       areaDescription: this.description,
       areaName: this.name,
+      error: false
     };
   },
   components: {
     Ingredient,
+  },
+  computed:{
+    isFilled() {
+      return this.recipeName == "" || this.recipeQuantaty == ""
+    }
   },
   methods: {
     ...mapMutations(["addIngredient", "removeItems", "editItem"]),
@@ -112,15 +119,19 @@ export default {
       this.editMode = !this.editMode;
     },
     sendData() {
-      this.addIngredient({
-        id: this.id,
-        data: {
-          ingredientName: this.recipeName,
-          ingredientValue: this.recipeQuantaty,
-        },
-      });
-      this.vissible = false;
-      this.recipeName = this.recipeQuantaty = "";
+      if (!this.isFilled) {
+        this.addIngredient({
+          id: this.id,
+          data: {
+            ingredientName: this.recipeName,
+            ingredientValue: this.recipeQuantaty,
+          },
+        });
+        this.vissible = this.error = false
+        this.recipeName = this.recipeQuantaty = "";
+      }else{
+        this.error = true
+      }
     },
   },
 };
