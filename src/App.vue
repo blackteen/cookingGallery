@@ -30,7 +30,7 @@ h3 {
 
 main h4 {
   font-weight: 700;
-  margin:  0 0 20px 0;
+  margin: 0 0 20px 0;
 }
 
 main {

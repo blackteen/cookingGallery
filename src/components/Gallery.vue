@@ -59,7 +59,7 @@ export default {
       image: null,
       name: "",
       description: "",
-      error: false
+      error: false,
     };
   },
   components: {
@@ -82,9 +82,9 @@ export default {
           ingredients: [],
         });
         this.name = this.description = "";
-       this.vissible = this.error = false
-      }else{
-        this.error = true
+        this.vissible = this.error = false;
+      } else {
+        this.error = true;
       }
     },
     uploadImage(e) {
