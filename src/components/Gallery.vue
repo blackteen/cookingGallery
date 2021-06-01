@@ -15,7 +15,7 @@
       <button class="btn btn-primary" @click="vissible = !vissible">
         Add Ricipe
       </button>
-      <div v-if="vissible" class="form-item">
+      <div v-show="vissible" class="form-item">
         <p class="error" v-if="error">Please, fill out all fields</p>
         <div class="form-group">
           <input

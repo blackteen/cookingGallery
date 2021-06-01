@@ -34,53 +34,53 @@ export default new Vuex.Store({
   state: {
     recipes: [
       {
-        name: "Pork",
+        name: "Landsknechts",
         image:
-          "https://image.shutterstock.com/image-photo/grilled-beef-steaks-spices-on-600w-439021402.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/7/72/Landsknechte.jpg",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "The Landsknechte (also rendered as Landsknechts; singular: Landsknecht, pronounced [ˈlantsknɛçt]) were German-speaking mercenaries used in pike and shot formations during the early modern period. Consisting predominantly of pikemen and supporting foot soldiers, their front line was formed by Doppelsöldner ('double-pay men') renowned for their use of crossbow, arquebus and Zweihänder. They formed the bulk of the Holy Roman Empire's Imperial Army from the late 1400s to the early 1600s.",
         ingredients: [
           {
-            ingredientName: "Salt",
-            ingredientValue: "20mg",
+            ingredientName: "Pike",
+            ingredientValue: "100",
           },
           {
-            ingredientName: "Pork",
-            ingredientValue: "1 piece",
+            ingredientName: "Flamber",
+            ingredientValue: "200",
           },
         ],
       },
       {
-        name: "Beef",
+        name: "Landsknecht Musketeers",
         image:
-          "https://image.shutterstock.com/image-photo/tender-boneless-grilled-pork-chops-600w-1277299174.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/7/7a/Landsknecht_2.JPG",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "The Landsknechte (also rendered as Landsknechts; singular: Landsknecht, pronounced [ˈlantsknɛçt]) were German-speaking mercenaries used in pike and shot formations during the early modern period. Consisting predominantly of pikemen and supporting foot soldiers, their front line was formed by Doppelsöldner ('double-pay men') renowned for their use of crossbow, arquebus and Zweihänder. They formed the bulk of the Holy Roman Empire's Imperial Army from the late 1400s to the early 1600s.",
         ingredients: [
           {
-            ingredientName: "Salt",
-            ingredientValue: "10mg",
+            ingredientName: "Musket",
+            ingredientValue: "300",
           },
           {
-            ingredientName: "Beef",
-            ingredientValue: "1 piece",
+            ingredientName: "Flamber",
+            ingredientValue: "200",
           },
         ],
       },
       {
-        name: "Chicken",
+        name: "Reiters",
         image:
-          "https://image.shutterstock.com/image-photo/roasted-chicken-rosemary-served-on-600w-1023252025.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/b/b7/Micha%C5%82owski_Reiter.jpg",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "Reiter or Schwarze Reiter ('black riders', anglicized swart reiters) were a type of cavalry in 16th to 17th century Central Europe including Holy Roman Empire, Polish–Lithuanian Commonwealth, Tsardom of Russia, and others.[1]",
         ingredients: [
           {
-            ingredientName: "Salt",
-            ingredientValue: "15mg",
+            ingredientName: "Pistol",
+            ingredientValue: "400",
           },
           {
-            ingredientName: "Chicken",
-            ingredientValue: "1 piece",
+            ingredientName: "Sword",
+            ingredientValue: "300",
           },
         ],
       },

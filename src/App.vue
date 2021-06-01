@@ -61,6 +61,7 @@ main .figure .file {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
+  overflow: auto;
 }
 
 .popup-body {
@@ -73,6 +74,9 @@ main .figure .file {
   border: 1px solid #ccc;
   padding: 20px;
   box-sizing: border-box;
+  min-height: 90%;
+  max-height: 90%;
+  overflow: auto;
 }
 
 .close {
