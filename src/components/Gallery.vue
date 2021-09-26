@@ -2,6 +2,7 @@
   <div>
     <main>
       <h4>Recipe Book</h4>
+      {{getRecipes}}
       <Recipe
         class="recipe"
         v-for="(recipe, idx) in getRecipes"
